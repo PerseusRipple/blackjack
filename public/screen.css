@@ -10,3 +10,59 @@ body {
   margin: 0;
   min-height: 100%;
 }
+
+.game-name {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  border: 1rem solid hotpink;
+  color: brown;
+  /*background-color: whitesmoke; */
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.player-table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 0.5rem solid purple;
+}
+
+.player-table ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-card-faceup {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  border: 0.25rem solid black;
+  color: red;
+}
+
+.player-1-faceup {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  border: 0.25rem solid black;
+  color: red;
+}
+
+.deal {
+  display: flex;
+  align-items: center;
+  width: auto;
+  color: blue;
+  border: 0.25rem solid black;
+}
+
+@media only screen and(min-width: 700px) {
+  .game-name {
+    font-size: 2rem;
+    color: purple;
+    width: 33%;
+  }
+}
