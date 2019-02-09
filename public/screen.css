@@ -15,10 +15,10 @@ body {
   display: flex;
   justify-content: center;
   font-weight: bold;
-  border: 1rem solid hotpink;
+  border: 1rem dotted hotpink;
   color: brown;
   /*background-color: whitesmoke; */
-  margin: 0.5rem;
+  top-margin: 0.5rem;
   padding: 1rem;
   width: 100%;
 }
@@ -26,37 +26,52 @@ body {
 .player-table {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: center;
   border: 0.5rem solid purple;
 }
 
-.player-table ul {
+.cards {
+  display: flex;
+  justify-content: center;
+  border: 1rem solid orange;
+  width: 100%;
+}
+
+.card-deck {
   display: flex;
   justify-content: space-between;
-}
-
-.new-card-faceup {
-  display: flex;
-  justify-content: center;
   list-style: none;
-  border: 0.25rem solid black;
-  color: red;
 }
 
-.player-1-faceup {
-  display: flex;
-  justify-content: center;
+.dealers-hand {
   list-style: none;
-  border: 0.25rem solid black;
+  border: 0.25rem solid midnightblue;
   color: red;
+  width: auto;
 }
 
-.deal {
+.player-1 {
+  list-style: none;
+  border: 0.25rem solid midnightblue;
+  color: red;
+  width: auto;
+}
+
+.button {
   display: flex;
   align-items: center;
+  justify-content: center;
+  background-color: lightcoral;
+}
+
+.button #deal {
   width: auto;
-  color: blue;
+  font-size: 1.5rem;
   border: 0.25rem solid black;
+  color: white;
+  background-color: red;
+  padding: 1rem;
 }
 
 @media only screen and(min-width: 700px) {

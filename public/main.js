@@ -6,7 +6,7 @@
 
 /*document.addEventListener('DOMContentLoaded', main) */
 
-let deck = []
+/*let deck = []
 
 const valuesOfCards = [
   'Ace',
@@ -23,15 +23,24 @@ const valuesOfCards = [
   '9',
   '10'
 ]
-const suitsOfCards = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+const suitsOfCards = ['Clubs', 'Diamonds', 'Hearts', 'Spades'] */
+let deck = []
 
-const main = () => {
+let cardsInDeck = 5
+cardsInDeck[0] = '2_of_clubs'
+cardsInDeck[1] = '2_of_diamonds'
+cardsInDeck[2] = '2_of_hearts'
+cardsInDeck[3] = '2_of_spades'
+cardsInDeck[4] = '3_of_clubs'
+
+/*const main = () => {
   // call function to create deck on page load
-  buildDeck()
-  // call function
-  shuffleDeck()
+ /* buildDeck() */
+// call function
+shuffleDeck() /*
 }
 
+/*
 // Build Deck
 const buildDeck = () => {
   for (let i = 0; i < suitsOfCards.length; i++) {
@@ -41,9 +50,13 @@ const buildDeck = () => {
       // let suit = suitsOfCards[suits]
       deck.push('the ' + valuesOfCards[j] + ' of ' + suitsOfCards[i])
     }
-  }
-  console.log(deck)
+  } }
+
+  console.log(deck) */
+const main = () => {
+  shuffleDeck()
 }
+
 // Shuffle Deck
 
 const shuffleDeck = () => {
@@ -66,25 +79,38 @@ const shuffleDeck = () => {
   console.log(deck)
 }
 
-// console.log(deck)
-
 // Deal Card
 
+const dealCard = () => {
+  if (numberOfCardsInDeck == 0) return false
+  const img = document.createElement('img')
+  img.src = 'public/images' + numberOfCardsInDeck[i] + '.svg'
+
+  document.body.appendChild(img)
+  document.removeCard(i)
+}
+
+/*
+// console.log(deck)
+
+// Deal Card (org)
 const dealCard = () => {
   let newCard = deck.splice(0, 1)
   if (deck.length > 0) {
     // const _li = document.createElement('li')
     // li.textContent = newCard
-    document.querySelector('.new-card-faceup').textContent = newCard
+    document.querySelector('.dealers-hand').textContent = newCard
   }
   let nextNewCard = deck.splice(0, 1)
 
+
+  //from original shuffle assignment
   if (deck.length > 0) {
     // const _li = document.createElement('li')
     // li.textContent = newCard
-    document.querySelector('.player-1-faceup').textContent = nextNewCard
+    document.querySelector('.player-1').textContent = nextNewCard
   }
-}
+} */
 
 // console.log('return')
 
