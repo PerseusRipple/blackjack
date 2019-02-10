@@ -4,55 +4,71 @@
   }
 } */
 
-/*document.addEventListener('DOMContentLoaded', main) */
+document.addEventListener('DOMContentLoaded', main)
+
+let deck = []
+
+const valuesOfCards = [
+  2,
+  '2',
+  3,
+  '3',
+  4,
+  '4',
+  5,
+  '5',
+  6,
+  '6',
+  7,
+  '7',
+  8,
+  '8',
+  9,
+  '9',
+  10,
+  '10',
+  11,
+  'jack',
+  12,
+  'queen',
+  13,
+  'king',
+  1,
+  'ace'
+]
+
+const suitsOfCards = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
 /*let deck = []
 
-const valuesOfCards = [
-  'Ace',
-  'King',
-  'Queen',
-  'Jack',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10'
-]
-const suitsOfCards = ['Clubs', 'Diamonds', 'Hearts', 'Spades'] */
-let deck = []
-
-let cardsInDeck = 5
+let numberofcardsInDeck = 65
 cardsInDeck[0] = '2_of_clubs'
 cardsInDeck[1] = '2_of_diamonds'
 cardsInDeck[2] = '2_of_hearts'
 cardsInDeck[3] = '2_of_spades'
-cardsInDeck[4] = '3_of_clubs'
+cardsInDeck[4] = '3_of_clubs' */
 
-/*const main = () => {
+const main = () => {
   // call function to create deck on page load
- /* buildDeck() */
-// call function
-shuffleDeck() /*
+  buildDeck()
+  // call function
+  shuffleDeck()
 }
 
-/*
 // Build Deck
+
 const buildDeck = () => {
   for (let i = 0; i < suitsOfCards.length; i++) {
     // console.log(deck)
     for (let j = 0; j < valuesOfCards.length; j++) {
       // let values = valuesOfCards[value]
       // let suit = suitsOfCards[suits]
-      deck.push('the ' + valuesOfCards[j] + ' of ' + suitsOfCards[i])
-    }
-  } }
+      deck.push('images/' + valuesOfCards[j] + ' of ' + suitsOfCards[i] + '.svg')
+  //console.log(deck push)    
+  }
+}
 
-  console.log(deck) */
+console.log(deck)
 const main = () => {
   shuffleDeck()
 }
@@ -79,18 +95,26 @@ const shuffleDeck = () => {
   console.log(deck)
 }
 
-// Deal Card
+// Get Values
 
-const dealCard = () => {
-  if (numberOfCardsInDeck == 0) return false
-  const img = document.createElement('img')
-  img.src = 'public/images' + numberOfCardsInDeck[i] + '.svg'
+const getValues = () => {
+for (let i = deck.length; counter = 0; count_1 = false){
 
-  document.body.appendChild(img)
-  document.removeCard(i)
+}
 }
 
+// Deal Card
 /*
+const dealCard = () => {
+  if (cardsInDeck == 0) return false
+  const img = document.createElement('img')
+  img.src = 'public/images' + deck + '.svg'
+
+  document.body.appendChild(img)
+  document.removeCard 
+} */
+
+
 // console.log(deck)
 
 // Deal Card (org)
@@ -110,11 +134,11 @@ const dealCard = () => {
     // li.textContent = newCard
     document.querySelector('.player-1').textContent = nextNewCard
   }
-} */
+} 
 
 // console.log('return')
-
-/* for(let deck = Math.floor(Math.random() * cardAtPositionShuffle.length)
+/*
+ for(let deck = Math.floor(Math.random() * cardAtPositionShuffle.length)
     return cardAtPositionShuffle.splice(card, 1)[0] */
 
 /*
