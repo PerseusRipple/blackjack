@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/screen.css" />
   </head>
-  
-        <!-- <ul class="card-deck"
+
+  <!-- <ul class="card-deck"
 
       <img src="/images/2_of_clubs.svg" alt="Two of Clubs" value="Two" />
 
@@ -208,53 +208,55 @@
         value="Ten"
       />-->
 
-      <!--Header-->
+  <!--Header-->
 
-      <body>
-        <h1 class="game-name">Let's Play BlackJack!</h1>
-    
-        <!--Main Container-->
-    
-        <section class="container">
-          <section class="images">
+  <body>
+    <h1 class="game-name">Let's Play BlackJack!</h1>
 
-      <!--Card Hands-->
+    <!--Main Container-->
 
-      
-      <section id="player1Hand"></section>
-      <section id="dealerHand"></section>
+    <section class="container">
+      <section class="images">
+        <!--Card Hands-->
+
+        <section id="player1-hand"></section>
+        <section id="dealer-hand"></section>
+      </section>
     </section>
-  </section>
     <!--Buttons-->
 
     <section class="buttons">
       <section class="deal-reset">
-      <button id="dealBtn">Deal</button> 
-      <button id="resetBtn">Reset</button>
-    </section>
+        <button id="dealBtn">Deal</button>
+        <button id="resetBtn">Reset</button>
+      </section>
 
-    <section class="hit-stand">
-        <button id="hitBtn">Hit</button> 
-        <button id="StandBtn">Stand</button>
+      <section class="hit-stand">
+        <button id="hitBtn">Hit</button>
+        <button id="standBtn">Stand</button>
       </section>
     </section>
 
     <!--Score Board-->
 
-    <section class="scoreboard">Your Score :
-      <input type="text" id="player-sum" value="">Dealer Score :
-      <input type="text" id="dealer-sum" value="">
+    <section class="scoreboard">
+      Your Score : <input type="text" id="player-sum" value="" />Dealer Score :
+      <input type="text" id="dealer-sum" value="" />
     </section>
 
     <section class="results">
-      <section id="display" >Results :
-        <input type="number" id="wins-counter">
+      <section id="display">
+        Results :
+        <input type="text" id="results-box" />
+      </section>
+      <section id="counter">
+        Wins Counter :
+        <input type="number" id="wins-counter" />
       </section>
     </section>
-  </section>
-<footer>
-  <p>Glad you had Fun. How 'bout a fresh air break and some sunshine?</p>
-</footer>
+    <footer>
+      <p>Glad you had Fun. How 'bout a fresh air break and some sunshine?</p>
+    </footer>
     <script src="/main.js" charset="utf-8"></script>
   </body>
 </html>

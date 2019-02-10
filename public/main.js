@@ -7,8 +7,17 @@
 // DOM Events
 
 document.addEventListener('DOMContentLoaded', main)
-
-let card = []
+document.addEventListener('DOMContentLoaded', main)
+document.getElementById('dealBtn').addEventListener('click', playGame)
+document.getElementById('hitBtn').addEventListener('click', goToHit)
+document.getElementById('standBtn').addEventListener('click', userStands)
+document.getElementById('resetBtn').addEventListener('click', resetGame)
+const playerSum = document.getElementById('player-sum')
+const dealerSum = document.getElementById('dealer-sum')
+const writeResults = document.getElementById('results-box')
+const winsCounter = document.getElementById('wins-counter')
+const playerCards = document.getElementById('player1-hand')
+const dealerCards = document.getElementById('dealer-hand')
 
 let deck = []
 
@@ -310,12 +319,6 @@ mySection.textContent = 'Hello, World'
 document.querySelector('.container').appendChild(mySection) */
 
 // i = shuffle
-document.addEventListener('DOMContentLoaded', main)
-document.getElementById('dealBtn').addEventListener('click', playGame)
-document.getElementById('hitBtn').addEventListener('click', goToHit)
-document.getElementById('standBtn').addEventListener('click', userStands)
-document.getElementById('resetBtn').addEventListener('click', resetGame)
-const playerSum = document.getElementById('player-sum')
 
 
 
