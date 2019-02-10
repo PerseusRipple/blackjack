@@ -4,6 +4,7 @@
     document.querySelector('h1.hello-world').textContent = 'Hello, World!'
   }
 } */
+// DOM Events
 
 document.addEventListener('DOMContentLoaded', main)
 
@@ -179,6 +180,7 @@ const dealCard = () => {
     // li.textContent = newCard
     document.querySelector('.player-1').textContent = nextNewCard
     return nextNewCard
+
   }
 }
 
@@ -309,7 +311,13 @@ document.querySelector('.container').appendChild(mySection) */
 
 // i = shuffle
 document.addEventListener('DOMContentLoaded', main)
-document.querySelector('.deal').addEventListener('click', playGame)
+document.getElementById('dealBtn').addEventListener('click', playGame)
+document.getElementById('hitBtn').addEventListener('click', goToHit)
+document.getElementById('standBtn').addEventListener('click', userStands)
+document.getElementById('resetBtn').addEventListener('click', resetGame)
+const playerSum = document.getElementById('player-sum')
+
+
 
 /*
   // Get Card Value
