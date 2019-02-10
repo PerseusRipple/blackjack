@@ -9,7 +9,10 @@
   </head>
   <body>
     <h1 class="game-name">Let's Play BlackJack!</h1>
-    <div class="container">
+
+    <!--Main Container-->
+
+    <section class="container">
       <section class="images">
         <!-- <ul class="card-deck"
 
@@ -210,14 +213,43 @@
         alt="Queen of Spades"
         value="Ten"
       />-->
-      </section>
-      <section id="player-1"></section>
-      <section id="dealers-hand"></section>
-    </div>
 
-    <div class="button">
-      <input type="button" value="deal card" id="dealBtn" />
-    </div>
+      <!--Card Hands-->
+
+      </section>
+      <section id="player1Hand"></section>
+      <section id="dealerHand"></section>
+    </section>
+
+    <!--Buttons-->
+
+    <section class="buttons">
+      <button id="dealBtn">Deal</button> 
+      <button id="resetBtn">Reset</button>
+    </section>
+
+    <section class="buttons">
+        <button id="hitBtn">Hit</button> 
+        <button id="Stand">Stand</button>
+      </section>
+    </section>
+
+    <!--Score Board-->
+
+    <section class="display-value">Your Score :
+      <input type="text" id="playersum" value="">Dealer Score :
+      <input type="text" id="dealersum" value="">
+    </section>
+
+    <section class="results">
+      <section id="display" >Results :
+        <input type="number" id="winscounter">
+      </section>
+    </section>
+  </section>
+
+
+
 
     <script src="/main.js" charset="utf-8"></script>
   </body>
