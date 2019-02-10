@@ -7,7 +7,7 @@
 
 document.addEventListener('DOMContentLoaded', main)
 
-// Build Card Object
+let card = []
 
 let deck = []
 
@@ -62,22 +62,10 @@ const buildCard = () => {
     for (let j = 0; j < cardsValue.length; j++) {
       // let value = cardsValue[value]
       // let suit = cardsSuit[suits]
-      /*deck.push('the ' + valuesOfCards[j] + ' of ' + suitsOfCards[i])) */
+      deck.push('the ' + valuesOfCards[j] + ' of ' + suitsOfCards[i]) 
       //console.log(deck push)
     }
   }
-
-  / Get Card Value
-/*
-const getCardValue = () => {
-  if (cardNumber === 'jack' || cardNumber === 'queen' || cardNumber === 'king') {
-    return 10
-  } else if (cardNumber === 'ace') {
-  return 11
-} else {
-  return cardNumber
-}
-} */
 
   // Build Deck and Display Cards
   
@@ -118,14 +106,13 @@ const getCardValue = () => {
     sum -= 10 
   }
   return sum
-  let playerSum = document.getElementById('playersum')
-  let dealerSum = document.getElementById('dealersum')
+  let playerSum = document.getElementById('player-sum')
+  let dealerSum = document.getElementById('dealer-sum')
 }
-
 
 // Hit Card
 
-hitCard = () => {
+const hitCard = () => {
   let lastCard = []
   let extraCard = deck.push(PlayingDeck.deck.pop())
   lastCard.push(deck[extraCard - 1]) 
@@ -136,11 +123,7 @@ hitCard = () => {
   }
   }
 
-
   
-
-/
-
 console.log(deck)
 const main = () => {
   shuffleDeck()
@@ -151,18 +134,14 @@ const main = () => {
 const shuffleDeck = () => {
   for (let i = deck.length - 1; i >= 0; i--) {
     let j = Math.floor(Math.random() * (i + 1))
-
-    // Swap card at position shuffle with the card at position random
-
+// Swap card at position shuffle with the card at position random
+//J is temp
     let cardAtPositionI = deck[i]
     let cardAtPositionJ = deck[j]
-
     // Put the card at position shuffle at position random
     deck[i] = cardAtPositionJ
-
     // Put the card at position random at position shuffle
     deck[j] = cardAtPositionI
-
     // console.log(deck)
   }
   console.log(deck)
@@ -184,26 +163,64 @@ const dealCard = () => {
   document.body.appendChild(img)
   document.removeCard 
 } */
-
 // console.log(deck)
 
-// Deal Card (org)
+// Deal Card 
 const dealCard = () => {
   let newCard = deck.splice(0, 1)
   if (deck.length > 0) {
     // const _li = document.createElement('li')
     // li.textContent = newCard
     document.querySelector('.dealers-hand').textContent = newCard
+    return newCard
   }
   let nextNewCard = deck.splice(0, 1)
-
   //from original shuffle assignment
   if (deck.length > 0) {
     // const _li = document.createElement('li')
     // li.textContent = newCard
     document.querySelector('.player-1').textContent = nextNewCard
+    return nextNewCard
   }
 }
+
+//Player and Dealer
+
+const player = () => {
+  let mainPlayer = []
+  mainPlayer.deck.push(PlayingDeck.deck.pop()), playingDeck.deck.pop())
+  mainPlayer.displayCards(mainPlayer.deck)
+  playerSum.value = mainPlayer.sumCards(mainPlayer.deck)
+}
+
+const dealer = () => {
+  let mainDealer = []
+  mainDealer.deck.push(PlayingDeck.deck.pop()), playingDeck.deck.pop())
+  mainDealer.displayCards(mainDealer.deck)
+  dealerSum.value = mainDealer.sumCards(mainDealer.deck)
+}
+
+// Bust Checker
+
+const checkIfBust = () => {
+  let playerScore = mainPlayer.sumCards(mainPlayer.deck)
+  let dealerScore = mainDealer.sumCards(mainDealer.deck)
+  playerSum.value = playerScore
+  dealerSum.value = dealerScore
+  if (playerScore > 21) {
+    numberOfWins -= 1
+    winsCounter.value = numberOfWins
+    disableHitStand()
+    } else if (playerScore === 21) {
+      textContent.value = '21! You Win !!'
+      numberOfWins += 1
+      winsCounter.value = numberOfWins
+      disableHitStand()
+    }
+}
+
+
+
 
 // console.log('return')
 /*
@@ -218,3 +235,16 @@ document.querySelector('.container').appendChild(mySection) */
 // i = shuffle
 document.addEventListener('DOMContentLoaded', main)
 document.querySelector('.deal').addEventListener('click', playGame)
+
+/*
+  // Get Card Value
+
+const getCardValue = () => {
+  if (cardNumber === 'jack' || cardNumber === 'queen' || cardNumber === 'king') {
+    return 10
+  } else if (cardNumber === 'ace') {
+  return 11
+} else {
+  return cardNumber
+}
+}  */
