@@ -29,9 +29,9 @@ const cardsValue = [
 
 const cardsSuit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
-let numOfCardsPlayer = 0
+let numberOfCardsPlayer = 0
 
-let numOfCardsDealer = 0
+let numberOfCardsDealer = 0
 
 let numOfWins = 0
 
@@ -104,11 +104,11 @@ const buildCard = () => {
   while (aces > 0 && sum > 21) {
     aces -= 1
     sum -= 10 
-  }
-  return sum
+
+   return sum
   let playerSum = document.getElementById('player-sum')
   let dealerSum = document.getElementById('dealer-sum')
-}
+  }
 
 // Hit Card
 
@@ -122,12 +122,10 @@ const hitCard = () => {
     checkIfBust()
   }
   }
-
-  
-console.log(deck)
+/*
 const main = () => {
-  shuffleDeck()
-}
+  shuffleDeck() 
+} */
 
 // Shuffle Deck
 
@@ -208,6 +206,7 @@ const checkIfBust = () => {
   playerSum.value = playerScore
   dealerSum.value = dealerScore
   if (playerScore > 21) {
+    writeResult.value = 'BUST !'
     numberOfWins -= 1
     winsCounter.value = numberOfWins
     disableHitStand()
@@ -218,6 +217,82 @@ const checkIfBust = () => {
       disableHitStand()
     }
 }
+
+// Hit Function
+
+goToHit = () => {
+  mainPlayer.hitCard(mainPlayer.deck)
+}
+
+// Stands Function
+
+userStands = () => {
+  let playerScore = mainPlayer.sumCards(mainPlayer.deck)
+  let dealerScore = mainDealer.sumCards(mainDealer.deck)
+  playerSum.value = playerScore
+while (dealScore < 17) {
+  mainDealer.hitCard(mainDealer.deck)
+  dealerScore = mainDealer.sumCards(mainDealer.deck)
+  dealerSum.value = dealerScore
+} 
+if (dealerScore > playerScore && dealerScore <= 21) {
+  writeResult.value = 'Dealer wins with' + dealerScore
+  numberOfWins -= 1
+  winsCounter.value = numberOfWins
+  disableHitStand()
+} else if (playerScore > dealerScore || dealerScore > 21) {
+  if (playerScore === 21) {
+    writeResult.value = 'BLACKJACK !'
+    numberOfWins += 1
+    winsCounter.value = numberOfWins
+    disableHitStand()
+  }
+} else {
+  writeResult.value = 'Hands Tie with ' + playerScore
+  disableHitStand()
+}
+}
+
+// Disable Hit and Stand
+
+disableHitStand = () => {
+  stand.disabled = true
+  hit.disabled = true
+}
+
+// Play on Deal
+
+playGame = () => {
+  player()
+  dealer()
+  deal.disabled = true
+  stand.disabled = false
+  hit.disabled = false
+}
+
+// Game Reset
+
+resetGame = () => {
+  writeResult.value = ''
+  dealerSum.value = ''
+  playerSum.value = ''
+  deal.disabled = false;
+  removeImages = () => {
+    let playerCardImages = playerCards.childNodes
+    let dealerCardImages = dealerCard.childNodes
+for (let i = numberOfCardsPlayer; i > 0; i--){
+  playerCardImages[i].parentNode.removeChild(playerCardImages[i]) 
+}
+for (let j = numberOfCardsDealer; j > 0; j--) {
+  dealerCardImages[j].parentNode.removeChild(dealerCardImages[j])
+}
+  }
+mainPlayer.deck = []
+mainDealer.deck = []
+numberOfCardsDealer = 0
+numberOfCardsPlayer = 0
+}
+
 
 
 
