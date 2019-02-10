@@ -1,4 +1,3 @@
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants'
 
 /*const main = () => {
   if (document.querySelector('h1.hello-world')) {
@@ -7,6 +6,8 @@ import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants'
 } */
 
 document.addEventListener('DOMContentLoaded', main)
+
+// Build Card Object
 
 let deck = []
 
@@ -43,16 +44,19 @@ cardsInDeck[2] = '2_of_hearts'
 cardsInDeck[3] = '2_of_spades'
 cardsInDeck[4] = '3_of_clubs' */
 
+
 const main = () => {
+  // call function to build CardObject
+  buildCard()
   // call function to create deck on page load
   buildDeck()
-  // call function
+  // call function to shuffle deck
   shuffleDeck()
 }
 
-// Build New Deck
+// Build CardObject by defining properties for each card
 
-const buildDeck = () => {
+const buildCard = () => {
   for (let i = 0; i < cardsSuit.length; i++) {
     // console.log(deck)
     for (let j = 0; j < cardsValue.length; j++) {
@@ -63,9 +67,22 @@ const buildDeck = () => {
     }
   }
 
-  // Display Cards
+  / Get Card Value
+/*
+const getCardValue = () => {
+  if (cardNumber === 'jack' || cardNumber === 'queen' || cardNumber === 'king') {
+    return 10
+  } else if (cardNumber === 'ace') {
+  return 11
+} else {
+  return cardNumber
+}
+} */
 
-  const displayCards = () => {
+  // Build Deck and Display Cards
+  
+  const buildDeck = () => {
+   /*const displayCards = () => { */
     for (let i = 0; i < deck.length; i++) {
       let imgElement = document.createElement('img')
       imgElement.src =
@@ -78,9 +95,11 @@ const buildDeck = () => {
       } else {
         numberOfCardsDealer++
         dealerHand.appendChild(imgElement)
+        console.log (cards-show)
       }
     }
   }
+}
 
   // Get Card Sum by adding numeric values of dealt cards
 
@@ -93,25 +112,34 @@ const buildDeck = () => {
     } else {
       sum = sum + deck[i].getCardValue()
     }
-  }
+  } 
   while (aces > 0 && sum > 21) {
     aces -= 1
-    sum -= 10
+    sum -= 10 
   }
   return sum
+  let playerSum = document.getElementById('playersum')
+  let dealerSum = document.getElementById('dealersum')
 }
 
-// Get Card Value
-/*
-const getCardValue = () => {
-  if (cardNumber === 'jack' || cardNumber === 'queen' || cardNumber === 'king') {
-    return 10
-  } else if (cardNumber === 'ace') {
-  return 11
-} else {
-  return cardNumber
-}
-} */
+
+// Hit Card
+
+hitCard = () => {
+  let lastCard = []
+  let extraCard = deck.push(PlayingDeck.deck.pop())
+  lastCard.push(deck[extraCard - 1]) 
+  // push only last card and display
+  displayCards(lastCard)
+  if (hitCard === mainPlayer) {
+    checkIfBust()
+  }
+  }
+
+
+  
+
+/
 
 console.log(deck)
 const main = () => {
@@ -189,4 +217,4 @@ document.querySelector('.container').appendChild(mySection) */
 
 // i = shuffle
 document.addEventListener('DOMContentLoaded', main)
-document.querySelector('.deal').addEventListener('click', dealCard)
+document.querySelector('.deal').addEventListener('click', playGame)
