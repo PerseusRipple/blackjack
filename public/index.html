@@ -9,8 +9,9 @@
   </head>
   <body>
     <h1 class="game-name">Let's Play BlackJack!</h1>
-    <section class="cards">
-      <!-- <ul class="card-deck"
+    <div class="container">
+      <section class="images">
+        <!-- <ul class="card-deck"
 
       <img src="/images/2_of_clubs.svg" alt="Two of Clubs" value="Two" />
 
@@ -209,14 +210,13 @@
         alt="Queen of Spades"
         value="Ten"
       />-->
-    </section>
+      </section>
+      <section id="player-1"></section>
+      <section id="dealers-hand"></section>
+    </div>
 
-    <span class="player-table">
-      <li class="dealers-hand"></li>
-      <li class="player-1"></li>
-    </span>
     <div class="button">
-      <input type="button" value="deal card" id="deal" />
+      <input type="button" value="deal card" id="dealBtn" />
     </div>
 
     <script src="/main.js" charset="utf-8"></script>

@@ -8,36 +8,36 @@ document.addEventListener('DOMContentLoaded', main)
 
 let deck = []
 
-const valuesOfCards = [
-  2,
+const cardsNumber = [
+  
   '2',
-  3,
+  
   '3',
-  4,
+  
   '4',
-  5,
+  
   '5',
-  6,
+  
   '6',
-  7,
+  
   '7',
-  8,
+  
   '8',
-  9,
+  
   '9',
-  10,
+  
   '10',
-  11,
+  
   'jack',
-  12,
+  
   'queen',
-  13,
+  
   'king',
-  1,
+  
   'ace'
 ]
 
-const suitsOfCards = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+const cardsSuit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
 /*let deck = []
 
@@ -49,21 +49,35 @@ cardsInDeck[3] = '2_of_spades'
 cardsInDeck[4] = '3_of_clubs' */
 
 const main = () => {
+  // call function to get card value
+  getCardValue()
   // call function to create deck on page load
   buildDeck()
   // call function
   shuffleDeck()
 }
 
+// Get Card Value
+
+const getCardValue = () => {
+  if (cardNumber === 'jack' || cardNumber === 'queen' || cardNumber === 'king') {
+    return 10
+  } else if (cardNumber === 'ace') {
+  return 11
+} else {
+  return cardNumber
+}
+}
+
 // Build Deck
 
 const buildDeck = () => {
-  for (let i = 0; i < suitsOfCards.length; i++) {
+  for (let i = 0; i < cardsSuit.length; i++) {
     // console.log(deck)
-    for (let j = 0; j < valuesOfCards.length; j++) {
-      // let values = valuesOfCards[value]
-      // let suit = suitsOfCards[suits]
-      deck.push('images/' + valuesOfCards[j] + ' of ' + suitsOfCards[i] + '.svg')
+    for (let j = 0; j < cardsNumber.length; j++) {
+      // let num = cardsNumber[num]
+      // let suit = cardsSuit[suits]
+      deck.push('images/' + cardsNumber[j] + ' of ' + cardsSuit[i] + '.svg')
   //console.log(deck push)    
   }
 }
