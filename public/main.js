@@ -14,7 +14,7 @@ const dealerCards = document.getElementById('dealer-cards')
 
 let deck = []
 
-const cardsValue = [
+const cardValue = [
   'Ace',
   'King',
   'Queen',
@@ -30,13 +30,13 @@ const cardsValue = [
   '10'
 ]
 
-const cardsSuit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+const cardSuit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
 let numberOfCardsPlayer = 0
 
 let numberOfCardsDealer = 0
 
-let numOfWins = 0
+let numberOfWins = 0
 
 const main = () => {
   // call function to create deck on page load
@@ -48,53 +48,74 @@ const main = () => {
 // Build Deck
 
 const buildDeck = () => {
-  for (let i = 0; i < cardsSuit.length; i++) {
+  for (let i = 0; i < cardSuit.length; i++) {
     // console.log(deck)
-    for (let j = 0; j < cardsValue.length; j++) {
-      // let value = cardsValue[value]
-      // let suit = cardsSuit[suit]
-      deck.push('the ' + cardsValue[j] + ' of ' + cardsSuit[i])
-    }
-  }
-
-  // Shuffle Deck
-
-  const shuffleDeck = () => {
-    for (let i = deck.length - 1; i >= 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1))
-      // Swap card at position shuffle with the card at position random
-      //J is temp
-      let cardAtPositionI = deck[i]
-      let cardAtPositionJ = deck[j]
-      // Put the card at position shuffle at position random
-      deck[i] = cardAtPositionJ
-      // Put the card at position random at position shuffle
-      deck[j] = cardAtPositionI
-      // console.log(deck)
-    }
-    console.log(deck)
-  }
-
-  //Display Card
-
-  const displayCards = () => {
-    for (let i = 0; i < deck.length; i++) {
-      let imgElement = document.createElement('img')
-      imgElement.src =
-        'images/' + deck[i].cardsValue + '_of_' + deck[i].cardSuit + '.svg'
-      imgElement.style.height = '120px'
-      imgElement.style.width = '100px'
-      if (displayCards === mainPlayer) {
-        numberOfCardsPlayer++
-        playerCards.appendChild(imgElement)
-      } else {
-        numberOfCardsDealer++
-        dealerCards.appendChild(imgElement)
-        console.log('cards')
-      }
+    for (let j = 0; j < cardValue.length; j++) {
+      // let values = CarsValue[value]
+      // let suit = CardSuit[suits]
+      deck.push('the ' + cardValue[j] + ' of ' + cardSuit[i])
     }
   }
 }
+
+// Display Card
+
+const displayCards = () => {
+  for (let i = 0; i < deck.length; i++) {
+    let imgElement = document.createElement('img')
+    imgElement.src =
+      'images/' + deck[i].cardsValue + '_of_' + deck[i].cardSuit + '.svg'
+    imgElement.style.height = '120px'
+    imgElement.style.width = '100px'
+    if (displayCards === dealerCards) {
+      numberOfCardsPlayer++
+      playerCards.appendChild(imgElement)
+    } else {
+      numberOfCardsDealer++
+      dealerCards.appendChild(imgElement)
+      console.log('cards')
+    }
+  }
+}
+
+// Shuffle Deck
+
+const shuffleDeck = () => {
+  for (let i = deck.length - 1; i >= 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1))
+
+    // Swap card at position shuffle with the card at position random
+
+    let cardAtPositionI = deck[i]
+    let cardAtPositionJ = deck[j]
+
+    // Put the card at position shuffle at position random
+    deck[i] = cardAtPositionJ
+
+    // Put the card at position random at position shuffle
+    deck[j] = cardAtPositionI
+
+    // console.log(deck)
+  }
+  console.log(deck)
+}
+
+// console.log(deck)
+
+// Deal Card
+
+const dealCard = () => {
+  let newCard = deck.splice(0, 1)
+  if (deck.length > 0) {
+    document.querySelector('.dealer-hand').textContent = newCard
+  }
+  let nextNewCard = deck.splice(0, 1)
+
+  if (deck.length > 0) {
+    document.querySelector('.player1-hand').textContent = nextNewCard
+  }
+}
+
 // Get Card Sum by adding numeric values of dealt cards
 
 let sum = 0
@@ -110,9 +131,8 @@ for (let i = 0; i < deck.length; i++) {
 while (aces > 0 && sum > 21) {
   aces -= 1
   sum -= 10
-}
-writeResults.value = sum
 
+/*
 // Deal Card
 const dealCard = () => {
   let newCard = deck.splice(0, 1)
@@ -130,11 +150,11 @@ const dealCard = () => {
     document.querySelector('.player-1').textContent = nextNewCard
     return nextNewCard
   }
-}
+} */
 
 const hitCard = () => {
   let lastCard = []
-  let extraCard = deck.push(newCard.deck.pop())
+  let extraCard = deck.push(newDeck.deck.pop())
   lastCard.push(deck[extraCard - 1])
   // push only last card and display
   displayCards(lastCard)
@@ -248,14 +268,7 @@ resetGame = () => {
       dealerCardImages[j].parentNode.removeChild(dealerCardImages[j])
     }
   }
-  mainPlayer.deck = []
-  mainDealer.deck = []
-  numberOfCardsDealer = 0
-  numberOfCardsPlayer = 0
-}
-
-/*
-  document.getElementById('player-sum').return = sum
-  document.getElementById('dealer-sum').return = sum */
-
-// Hit Card
+    mainPlayer.deck = []
+    mainDealer.deck = []
+    numberOfCardsDealer = 0
+    numberOfCardsPlayer = 0 
